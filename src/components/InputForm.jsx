@@ -1,7 +1,13 @@
 import { useState } from "react";
 
-function InputForm() {
+function InputForm({ handleClick }) {
   const [text, setText] = useState("");
+
+  const handleOnClick = () => {
+    handleClick(text);
+  };
+
+  const transferText = () => {};
 
   return (
     <div>
@@ -13,7 +19,7 @@ function InputForm() {
           onChange={(e) => setText(e.target.value)}
         ></input>
       </form>
-      <button>Check</button>
+      <button onClick={handleOnClick}>Check</button>
     </div>
   );
 }
